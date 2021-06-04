@@ -1,0 +1,3 @@
+[submodule "42-sp-libft"]
+	path = 42-sp-libft
+	url = https://github.com/Vini-cp/42-sp-libft.git
