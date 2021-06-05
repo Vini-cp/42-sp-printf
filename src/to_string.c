@@ -20,6 +20,13 @@ static	char	*define_str(char *str)
 	return (ft_strdup("(null)\0"));
 }
 
+static	int	define_len(char *str)
+{
+	if (str)
+		return (ft_strlen(str));
+	return (0);
+}
+
 void	to_string(const char *f, va_list args, t_flags ***lst)
 {
 	(**lst)->c = ' ';
@@ -41,5 +48,5 @@ void	to_string(const char *f, va_list args, t_flags ***lst)
 		(**lst)->print_c = (*f);
 	(**lst)->c = define_char(*f, (**lst)->c);
 	(**lst)->str = define_str((**lst)->str);
-	(**lst)->s_len = ((**lst)->str) ? ft_strlen((**lst)->str) : 0;
+	(**lst)->s_len = define_len((**lst)->str);
 }

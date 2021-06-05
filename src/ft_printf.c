@@ -30,14 +30,18 @@ static	int	iter(const char **fmt, t_flags **node, va_list args, int *i)
 		if (!**fmt)
 			return (0);
 		to_string(*fmt, args, &node);
-		*i += ((*node)->c == ' ' || (*node)->c == 'c' || (*node)->c == 'u') ? \
-		ft_printf_print(*node) : ft_printf_print_p_str(*node);
+		if ((*node)->c == ' ' || (*node)->c == 'c' || (*node)->c == 'u')
+			*i += ft_printf_print(*node);
+		else
+			*i += ft_printf_print_p_str(*node);
 	}
 	else
 	{
 		to_string(*fmt, args, &node);
-		*i += ((*node)->c == ' ' || (*node)->c == 'c' || (*node)->c == 'u') ? \
-		ft_printf_print(*node) : ft_printf_print_p_str(*node);
+		if ((*node)->c == ' ' || (*node)->c == 'c' || (*node)->c == 'u')
+			*i += ft_printf_print(*node);
+		else
+			*i += ft_printf_print_p_str(*node);
 	}
 	return (1);
 }
