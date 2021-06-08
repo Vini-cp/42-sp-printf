@@ -29,7 +29,7 @@ void	ft_printf_empty_zeros(t_flags ***lst)
 	int		size;
 
 	(**lst)->just = define_just((**lst)->width, (**lst)->just);
-	(**lst)->width = define_width((**lst)->width < 0);
+	(**lst)->width = define_width((**lst)->width);
 	size = define_size((**lst)->width, (**lst)->prec);
 	s = (char *)malloc((size + 1) * sizeof(char));
 	t = (char *)malloc((size + 1) * sizeof(char));
